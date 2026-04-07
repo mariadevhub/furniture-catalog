@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniture Catalog</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+    h1 { text-align: center; }
+    .catalog { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .item { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 200px; text-align: center; padding: 15px; }
+    .item img { width: 100%; border-radius: 5px; }
+    .item h3 { font-size: 18px; margin: 10px 0 5px; }
+    .item p { font-size: 16px; font-weight: bold; color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <h1>Furniture Catalog</h1>
+  <div class="catalog" id="catalog"></div>
+
+  <script>
+    // Embedded furniture data (no separate JSON file needed)
+    const furnitureData = [
+      {
+        name: "Modern Chair",
+        image: "https://raw.githubusercontent.com/yourusername/repo/main/images/chair1.jpg",
+        price: "₱2,500"
+      },
+      {
+        name: "Wooden Table",
+        image: "https://raw.githubusercontent.com/yourusername/repo/main/images/table1.jpg",
+        price: "₱5,200"
+      },
+      {
+        name: "Office Desk",
+        image: "https://raw.githubusercontent.com/yourusername/repo/main/images/desk1.jpg",
+        price: "₱3,800"
+      }
+    ];
+
+    const catalog = document.getElementById('catalog');
+    furnitureData.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>${item.price}</p>
+      `;
+      catalog.appendChild(div);
+    });
+  </script>
+</body>
+</html>
